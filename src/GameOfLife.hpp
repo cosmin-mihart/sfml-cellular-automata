@@ -3,6 +3,8 @@
 
 #include "Map.hpp"
 
+
+// Class used to create game of life by Conway
 class GameOfLife : public Map
 {
 public:
@@ -11,6 +13,8 @@ public:
     void generateMap() override;
     void showMap() override;
     void updateMap() override;
+    void cellCycle(int x, int y) override;
+    void createCustomMap() override;
 };
 
 #endif

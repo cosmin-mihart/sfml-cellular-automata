@@ -19,8 +19,8 @@ void GameOfLife::showMap()
     for (int x = 0; x < gridWidth; x++)
         for (int y = 0; y < gridHeight; y++)
         {
-            if (gameMapState[x][y] == 1) gameMap[x][y].setFillColor(sf::Color::Black);
-            else gameMap[x][y].setFillColor(sf::Color::White);
+            if (gameMapState[x][y] == 1) gameMap[x][y].setFillColor(sf::Color::Yellow);
+            else gameMap[x][y].setFillColor(sf::Color::Black);
             mWindow.draw(gameMap[x][y]);
         }
     std::cout << "Shown map\n";
@@ -44,4 +44,14 @@ void GameOfLife::updateMap()
         }
 
     std::cout << "Updated map\n";
+}
+
+void GameOfLife::cellCycle(int x, int y)
+{
+    gameMapState[x][y] = !gameMapState[x][y];
+}
+
+void GameOfLife::createCustomMap()
+{
+    std::fill(gameMapState.begin(), gameMapState.end(), std::vector<int>(gridHeight, 0));
 }
