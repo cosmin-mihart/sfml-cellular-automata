@@ -17,7 +17,9 @@ Map::Map(unsigned cellSize, unsigned gridWidth, unsigned gridHeight, sf::RenderW
 		{
             gameMapState[x][y] = 0;
 			gameMap[x][y].setSize(sf::Vector2f(cellSize, cellSize));
-			gameMap[x][y].setFillColor(sf::Color::White);
+			gameMap[x][y].setFillColor(sf::Color::Black);
+            gameMap[x][y].setOutlineThickness(0.5);
+            gameMap[x][y].setOutlineColor(sf::Color::Black);
 			gameMap[x][y].setPosition((x) * cellSize, (y) * cellSize);
 		}
 	}

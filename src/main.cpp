@@ -1,5 +1,5 @@
 #include <iostream>
-#include<sstream>
+#include <sstream>
 #include <vector>
 #include <SFML/Graphics.hpp>
 
@@ -34,16 +34,16 @@ int main()
 	view.setCenter(window.getSize().x / 2.f, window.getSize().y / 2.f);
 
     // Tile outline used for highlighting the tile under the mouse
-    sf::RectangleShape tileSelector(sf::Vector2f(cellSizeF, cellSizeF));
+    sf::RectangleShape tileSelector(sf::Vector2f(cellSizeF - 6, cellSizeF - 6));
 	tileSelector.setFillColor(sf::Color::Transparent);
-	tileSelector.setOutlineThickness(1.f);
-	tileSelector.setOutlineColor(sf::Color::Green);
+	tileSelector.setOutlineThickness(4.f);
+	tileSelector.setOutlineColor(sf::Color::Blue);
 
     sf::Text gridLocation;
     sf::Font font;
     font.loadFromFile("fonts/Roboto-Regular.ttf");
     gridLocation.setFont(font);
-    gridLocation.setFillColor(sf::Color::Red);
+    gridLocation.setFillColor(sf::Color::Blue);
     gridLocation.setCharacterSize(24);
 
     // Game of life object
@@ -52,7 +52,7 @@ int main()
     gameMap.updateMap();
     gameMap.updateMap();
 
-    // TODO finde better way to run the app
+    // TODO find better way to run the app
     // and create a menu system
     while(window.isOpen())
     {
@@ -112,7 +112,7 @@ int main()
 		window.setView(window.getDefaultView());
 
         // Render UI
-		tileSelector.setPosition(mousePosGrid.x * cellSizeF, mousePosGrid.y * cellSizeF);
+		tileSelector.setPosition(mousePosGrid.x * cellSizeF + 3, mousePosGrid.y * cellSizeF + 3);
         window.draw(tileSelector);
         window.draw(gridLocation);
 

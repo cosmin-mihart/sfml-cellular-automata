@@ -19,8 +19,8 @@ void GameOfLife::showMap()
     for (int x = 0; x < gridWidth; x++)
         for (int y = 0; y < gridHeight; y++)
         {
-            if (gameMapState[x][y] == 1) gameMap[x][y].setFillColor(sf::Color::Yellow);
-            else gameMap[x][y].setFillColor(sf::Color::Black);
+            if (gameMapState[x][y] == 1) gameMap[x][y].setFillColor(sf::Color::Black);
+            else gameMap[x][y].setFillColor(sf::Color::White);
             mWindow.draw(gameMap[x][y]);
         }
     std::cout << "Shown map\n";
