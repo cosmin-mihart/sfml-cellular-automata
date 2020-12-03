@@ -41,7 +41,7 @@ int main()
 
     sf::Text gridLocation;
     sf::Font font;
-    font.loadFromFile("fonts/Roboto-Regular.ttf");
+    font.loadFromFile("fonts/mononoki-regular.ttf");
     gridLocation.setFont(font);
     gridLocation.setFillColor(sf::Color::Blue);
     gridLocation.setCharacterSize(24);
@@ -66,14 +66,15 @@ int main()
             {
                 case sf::Event::Closed:
                     window.close();
-                break;
 
                 case sf::Event::KeyPressed:
                     switch (event.key.code)
                     {
+                        case sf::Keyboard::Escape:
+                            window.close();
+
                         case sf::Keyboard::Space:
                             simulationPause = !simulationPause;
-                        break;
 
                         case sf::Keyboard::C:
                         {
@@ -81,6 +82,8 @@ int main()
                             simulationPause = true;
                             gameMap.createCustomMap();
                         }
+
+
                     }
                 case sf::Event::MouseButtonPressed:
                     switch (event.mouseButton.button)
@@ -99,7 +102,7 @@ int main()
         mousePosGrid.y = mousePosView.y / cellSizeU;
 
         std::stringstream mousePosition;
-        mousePosition << "Current cell: " << mousePosGrid.x << ", " << mousePosGrid.y;
+        mousePosition << "Current cell: " << mousePosGrid.x << ", " << mousePosGrid.y << "\n" << mousePosView.x << mousePosView.y;
         gridLocation.setString(mousePosition.str());
 
 		window.setView(view);
@@ -109,13 +112,13 @@ int main()
         if (simulationPause == false)
             gameMap.updateMap();
 
-		window.setView(window.getDefaultView());
 
         // Render UI
 		tileSelector.setPosition(mousePosGrid.x * cellSizeF + 3, mousePosGrid.y * cellSizeF + 3);
         window.draw(tileSelector);
-        window.draw(gridLocation);
+		window.setView(window.getDefaultView());
 
+        window.draw(gridLocation);
         // Display rendered items
         window.display();
     }

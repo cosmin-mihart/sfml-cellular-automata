@@ -6,9 +6,9 @@ endif()
 
 set (CMAKE_CXX_STANDARD 17)
 
-project(cellular-automata)
+project(sfml-cellular-automata)
 
-set(EXECUTABLE_NAME "cellular-automata")
+set(EXECUTABLE_NAME "sfml-cellular-automata")
 add_executable(
   ${EXECUTABLE_NAME}
   src/main.cpp
@@ -17,6 +17,5 @@ add_executable(
   src/GameOfLife.hpp
   src/GameOfLife.cpp
   )
-
 
 target_link_libraries(${EXECUTABLE_NAME} sfml-graphics sfml-window sfml-system)
