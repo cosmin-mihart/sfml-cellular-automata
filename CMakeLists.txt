@@ -12,10 +12,20 @@ set(EXECUTABLE_NAME "sfml-cellular-automata")
 add_executable(
   ${EXECUTABLE_NAME}
   src/main.cpp
-  src/Map.hpp
-  src/Map.cpp
+  src/CellularAutomaton.hpp
+  src/CellularAutomaton.cpp
   src/GameOfLife.hpp
   src/GameOfLife.cpp
+  src/Application.hpp
+  src/Application.cpp
+  src/State.hpp
+  src/State.cpp
+  src/ApplicationState.hpp
+  src/ApplicationState.cpp
+  src/MainMenuState.hpp
+  src/MainMenuState.cpp
+  src/Button.hpp
+  src/Button.cpp
   )
 
 target_link_libraries(${EXECUTABLE_NAME} sfml-graphics sfml-window sfml-system)

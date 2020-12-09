@@ -1,20 +1,20 @@
 #ifndef GAME_OF_LIFE_HPP
 #define GAME_OF_LIFE_HPP
 
-#include "Map.hpp"
+#include "CellularAutomaton.hpp"
 
 
 // Class used to create game of life by Conway
-class GameOfLife : public Map
+class GameOfLife : public CellularAutomaton
 {
 public:
-    GameOfLife(unsigned cellSize, unsigned gridWidth, unsigned gridHeight, sf::RenderWindow& window ):Map(cellSize, gridWidth, gridHeight, window){};
+    GameOfLife(unsigned cellSize, unsigned gridWidth, unsigned gridHeight):CellularAutomaton(cellSize, gridWidth, gridHeight){};
 
-    void generateMap() override;
-    void showMap() override;
-    void updateMap() override;
+    void generateAutomaton() override;
+    void renderAutomaton(sf::RenderTarget* target) override;
+    void updateAutomaton() override;
     void cellCycle(int x, int y) override;
-    void createCustomMap() override;
+    void createCustomAutomaton() override;
 };
 
 #endif
