@@ -63,7 +63,6 @@ void ApplicationState::updateState(const float& deltaTime)
             this -> gameOfLife -> updateAutomaton();
         break;
         case PAUSED:
-            std::cout << "Simulation Running\n";
         break;
     }
 

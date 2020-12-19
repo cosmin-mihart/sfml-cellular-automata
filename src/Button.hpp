@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
-enum ButtonStatess{BUTTON_IDLE = 0, BUTTON_HOVER, BUTTON_ACTIVE};
+enum ButtonStates{BUTTON_IDLE = 0, BUTTON_HOVER, BUTTON_ACTIVE};
 
 class Button
 {
@@ -25,7 +25,7 @@ class Button
         sf::Color buttonOutlineHoverColor;
         sf::Color buttonOutlineActiveColor;
 
-        ButtonStatess buttonState;
+        ButtonStates buttonState;
 
     public:
         Button();

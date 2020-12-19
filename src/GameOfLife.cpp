@@ -1,6 +1,5 @@
 #include "GameOfLife.hpp"
 
-#include <iostream>
 #include <stdlib.h>
 #include <time.h>
 
@@ -43,7 +42,6 @@ void GameOfLife::renderAutomaton(sf::RenderTarget* target)
             else this -> automatonCell[x][y].setFillColor(sf::Color::White);
             target -> draw(automatonCell[x][y]);
         }
-    std::cout << "Shown rendered\n";
 }
 
 void GameOfLife::updateAutomaton()
@@ -71,8 +69,6 @@ void GameOfLife::updateAutomaton()
             else if (numNeighbours == 3) this -> automatonCellState[x][y] = 1;
             else if (numNeighbours > 3) this -> automatonCellState[x][y] = 0;
         }
-
-    std::cout << "Updated automaton\n";
 }
 
 void GameOfLife::cellCycle(int x, int y)

@@ -6,7 +6,8 @@ EditorState::EditorState(sf::RenderWindow* window, std::stack<State*>* states):S
     this -> gameOfLifeEditor= new GameOfLife(this -> gridSize, this -> windowWidthU/this -> gridSize, this -> windowHeightU/this -> gridSize);
     this -> gameOfLifeEditor -> generateAutomaton();
     this -> gameOfLifeEditor -> createCustomAutomaton();
-    this -> simulationPaused = false;
+    this -> simulationPaused = true;
+    sf::sleep(sf::seconds(0.1));
 }
 
 EditorState::~EditorState()
@@ -16,7 +17,7 @@ EditorState::~EditorState()
 
 void EditorState::endState()
 {
-    std::cout << "Ending editor state";
+    std::cout << "ending editor state\n";
 }
 
 void EditorState::updateKeybinds(const float& deltaTime)

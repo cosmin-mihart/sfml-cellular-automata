@@ -37,9 +37,9 @@ void MainMenuState::initButtons()
 
 void MainMenuState::updateButtons()
 {
-    for (auto &it : this -> buttons)
+    for (auto &button : this -> buttons)
     {
-        it.second -> updateButton(this -> mousePositionView);
+        button.second -> updateButton(this -> mousePositionView);
     }
 
     if (this -> buttons["PLAY"] -> isActive())
@@ -64,7 +64,7 @@ void MainMenuState::renderButtons(sf::RenderTarget* target)
 
 void MainMenuState::endState()
 {
-    std::cout << "ending game state\n";
+    std::cout << "ending main menu state\n";
 }
 
 void MainMenuState::updateKeybinds(const float& deltaTime)
@@ -77,9 +77,6 @@ void MainMenuState::updateState(const float& deltaTime)
     this -> updateMousePositions();
     this -> updateButtons();
     this -> updateKeybinds(deltaTime);
-
-
-    std::cout << "in main menu state\n";
 }
 
 void MainMenuState::renderState(sf::RenderTarget* target)
