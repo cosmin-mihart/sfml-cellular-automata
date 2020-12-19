@@ -35,9 +35,11 @@ void State::initFonts()
     }
 }
 
-void State::updateMousePositions()
+void State::updateMousePositions(unsigned gridSize)
 {
     this -> mousePositionScreen = sf::Mouse::getPosition();
     this -> mousePositionWindow = sf::Mouse::getPosition(*this -> window);
     this -> mousePositionView = this -> window -> mapPixelToCoords(sf::Mouse::getPosition(*this -> window));
+    this -> mousePositionGrid.x = this -> mousePositionView.x/gridSize;
+    this -> mousePositionGrid.y = this -> mousePositionView.y/gridSize;
 }

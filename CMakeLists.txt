@@ -26,6 +26,8 @@ add_executable(
   src/MainMenuState.cpp
   src/Button.hpp
   src/Button.cpp
+  src/EditorState.hpp
+  src/EditorState.cpp
   )
 
 target_link_libraries(${EXECUTABLE_NAME} sfml-graphics sfml-window sfml-system)

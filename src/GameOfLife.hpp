@@ -10,6 +10,7 @@ class GameOfLife : public CellularAutomaton
 public:
     GameOfLife(unsigned cellSize, unsigned gridWidth, unsigned gridHeight):CellularAutomaton(cellSize, gridWidth, gridHeight){};
 
+    void resizeAutomaton(unsigned width, unsigned height, unsigned size) override;
     void generateAutomaton() override;
     void renderAutomaton(sf::RenderTarget* target) override;
     void updateAutomaton() override;

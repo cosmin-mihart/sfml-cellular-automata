@@ -26,11 +26,14 @@ class State
         float windowHeightF;
         unsigned windowHeightU;
 
+        unsigned gridSize;
+
         sf::Font font;
 
         sf::Vector2i mousePositionScreen;
         sf::Vector2i mousePositionWindow;
         sf::Vector2f mousePositionView;
+        sf::Vector2u mousePositionGrid;
 
     public:
         State(sf::RenderWindow* window, std::stack<State*>* states);
@@ -40,7 +43,7 @@ class State
         virtual void quitState();
 
         virtual void initFonts();
-        virtual void updateMousePositions();
+        virtual void updateMousePositions(unsigned gridSize = 1);
 
 
         virtual void endState() = 0;

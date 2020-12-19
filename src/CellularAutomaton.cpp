@@ -14,14 +14,14 @@ CellularAutomaton::CellularAutomaton(unsigned cellSize, unsigned gridWidth, unsi
 		this -> automatonCell[x].resize(this -> gridHeight, sf::RectangleShape());
         this -> automatonCellState[x].resize(this -> gridHeight);
 
-		for (int y = 0; y < gridHeight; y++)
+		for (int y = 0; y < this -> gridHeight; y++)
 		{
             this -> automatonCellState[x][y] = 0;
-			this -> automatonCell[x][y].setSize(sf::Vector2f(cellSize, cellSize));
+			this -> automatonCell[x][y].setSize(sf::Vector2f(this -> cellSize, this -> cellSize));
 			this -> automatonCell[x][y].setFillColor(sf::Color::Black);
             this -> automatonCell[x][y].setOutlineThickness(0.5);
             this -> automatonCell[x][y].setOutlineColor(sf::Color(128, 128, 128, 255));
-			this -> automatonCell[x][y].setPosition((x) * cellSize, (y) * cellSize);
+			this -> automatonCell[x][y].setPosition((x) * this -> cellSize, (y) * this -> cellSize);
 		}
 	}
 };

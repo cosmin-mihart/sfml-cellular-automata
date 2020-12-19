@@ -7,13 +7,6 @@ int main()
 	// tileSelector.setFillColor(sf::Color::Transparent);
 	// tileSelector.setOutlineThickness(4.f);
 	// tileSelector.setOutlineColor(sf::Color::Red);
-
-    // sf::Text gridLocation;
-    // sf::Font font;
-    // font.loadFromFile("fonts/default.ttf");
-    // gridLocation.setFont(font);
-    // gridLocation.setFillColor(sf::Color::Red);
-    // gridLocation.setCharacterSize(24);
     // tileSelector.setPosition(mousePosGrid.x * cellSizeF + 3, mousePosGrid.y * cellSizeF + 3);
     // window.draw(tileSelector);
     Application application;

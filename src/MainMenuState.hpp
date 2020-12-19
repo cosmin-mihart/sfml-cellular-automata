@@ -1,15 +1,15 @@
 #ifndef MAIN_MENU_STATE_HPP
 #define MAIN_MENU_STATE_HPP
 
-#include "ApplicationState.hpp"
 #include "Button.hpp"
+#include "ApplicationState.hpp"
+#include "EditorState.hpp"
 
 class MainMenuState : public State
 {
     private:
-        sf::Text text;
-
         std::map<std::string, Button*> buttons;
+
     public:
         MainMenuState(sf::RenderWindow* window, std::stack<State*>* states);
         ~MainMenuState();

@@ -14,6 +14,8 @@ class CellularAutomaton
     public:
         CellularAutomaton(unsigned cellSize, unsigned gridWidth, unsigned gridHeight);
 
+        // Resize the automaton to a specified number of cells on the width and hight with a given size
+        virtual void resizeAutomaton(unsigned width, unsigned height, unsigned size) = 0;
         // Generate random automaton
         virtual void generateAutomaton() = 0;
         // Advance one generation

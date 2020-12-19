@@ -22,6 +22,12 @@ void MainMenuState::initButtons()
                                 sf::Color::Yellow, sf::Color::White, sf::Color::Red, // Button text color
                                 sf::Color::Yellow, sf::Color::White, sf::Color::Red); // Button outline color
 
+    this -> buttons["EDIT"] = new Button(400, 500, 150, 50, // Position and size
+                                &this -> font, "Edit", 30, // Font, font text and character size
+                                sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 255), sf::Color(40, 40, 40, 200), // Button color
+                                sf::Color::Yellow, sf::Color::White, sf::Color::Red, // Button text color
+                                sf::Color::Yellow, sf::Color::White, sf::Color::Red); // Button outline color
+
     this -> buttons["QUIT"] = new Button(400, 600, 150, 50, // Position and size
                                 &this -> font, "Exit", 30, // Font, font text and character size
                                 sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 255), sf::Color(40, 40, 40, 200), // Button color
@@ -39,6 +45,10 @@ void MainMenuState::updateButtons()
     if (this -> buttons["PLAY"] -> isActive())
     {
         this -> states -> push(new ApplicationState(this -> window, this -> states));
+    }
+    if (this -> buttons["EDIT"] -> isActive())
+    {
+        this -> states -> push(new EditorState(this -> window, this -> states));
     }
     if (this -> buttons["QUIT"] -> isActive())
         this -> quitState();
@@ -69,18 +79,10 @@ void MainMenuState::updateState(const float& deltaTime)
     this -> updateKeybinds(deltaTime);
 
 
-    std::stringstream mousePositions;
-    mousePositions << this -> mousePositionWindow.x << ", " << this -> mousePositionWindow.y << "\n"
-                << this -> mousePositionView.x << ", " << this -> mousePositionView.y;
-
-    text.setString(mousePositions.str());
-    text.setFont(this -> font);
-
     std::cout << "in main menu state\n";
 }
 
 void MainMenuState::renderState(sf::RenderTarget* target)
 {
-    target -> draw(text);
     this -> renderButtons(target);
 }
